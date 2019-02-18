@@ -1,0 +1,49 @@
+package Les2_OOP;
+
+public class Board {
+Shape [] units = new Shape [4];
+int i=0;
+	
+public boolean addShape (Shape a) {
+	for (i=0;i<units.length;i++) {
+		if (units [i]==null) {
+			units [i]=a;
+			break;
+		}
+	}
+	if (i==units.length){
+		System.out.println("Все ячейки заняты!");
+		return false;
+	}
+	else {
+		System.out.println("Добавлен " + a + " в ячейку "+(i+1));
+		return true;	
+	}	
+}
+
+public boolean delShape (int position) {
+	
+		if (units [position-1]==null) {
+			System.out.println("Удалять нечего! Ячейка пуста");
+			return false;
+		}
+		else {
+		units [position-1]=null;
+		System.out.println("Фигура успешно удалена из ячейки " + position);
+		return true;
+		}
+}
+
+public void countShape () {
+	double square=0;
+
+	for (i=0;i<units.length;i++) {
+		if (units [i]!=null) {
+			System.out.println("Ячейка " + (i+1) + " занята " + units [i]);
+			square = square + units [i].calculateArea();
+		}
+	}
+	System.out.println("Общая площадь всех фигур в ячейках = " + square);
+
+}
+}
