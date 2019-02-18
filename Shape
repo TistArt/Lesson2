@@ -1,0 +1,6 @@
+package Les2_OOP;
+
+public abstract class Shape {
+	abstract double calculatePerimetr();
+	abstract double calculateArea();
+}
